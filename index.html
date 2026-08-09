@@ -212,14 +212,18 @@
   /* ---------- ASSERTIONS / WHY ME ---------- */
   .assert-list{display:flex; flex-direction:column; gap:0;}
   .assert-row{
-    display:grid; grid-template-columns:110px 1fr; gap:16px;
+    display:grid; grid-template-columns:210px 1fr; gap:16px;
     padding:14px 0; border-bottom:1px solid var(--line);
     font-family:var(--mono); font-size:13.5px;
   }
   .assert-row:last-child{border-bottom:none;}
-  .assert-key{color:var(--text-faint);}
+  .assert-key{color:var(--text-faint); white-space:nowrap;}
   .assert-val{color:var(--text-dim);}
   .assert-val strong{color:var(--text);}
+  @media (max-width:640px){
+    .assert-row{grid-template-columns:1fr;}
+    .assert-key{white-space:normal;}
+  }
 
   /* ---------- EDUCATION / CERTS ---------- */
   .two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
