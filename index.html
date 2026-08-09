@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayush Ingle — SDET / QA Automation Engineer</title>
+<meta name="description" content="Ayush Ingle — SDET specializing in Playwright + TypeScript automation frameworks for regulated healthcare systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0d10;
+    --bg-raised: #12161b;
+    --bg-terminal: #0e1116;
+    --line: #1f262e;
+    --text: #dfe6ec;
+    --text-dim: #8b98a5;
+    --text-faint: #55626e;
+    --pass: #3fd67a;
+    --pass-dim: #245c3d;
+    --accent: #ffb454;
+    --fail: #ff6b6b;
+    --link: #6fb3ff;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--pass-dim); color:#fff;}
+  a{color:var(--link); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--pass); outline-offset:3px;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,13,16,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:920px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--mono); font-weight:700; font-size:14px; color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--pass); box-shadow:0 0 8px var(--pass); flex-shrink:0;}
+  nav.links{display:flex; gap:22px; font-family:var(--mono); font-size:13px;}
+  nav.links a{color:var(--text-dim);}
+  nav.links a:hover{color:var(--pass); text-decoration:none;}
+  .nav-cta{
+    font-family:var(--mono); font-size:12px; color:var(--pass);
+    border:1px solid var(--pass-dim); padding:6px 12px; border-radius:4px;
+  }
+  .nav-cta:hover{background:var(--pass-dim); text-decoration:none; color:#eafff2;}
+  @media (max-width:640px){ nav.links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 0 40px;}
+  .hero-eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-faint);
+    letter-spacing:0.06em; margin-bottom:18px;
+  }
+  .terminal{
+    background:var(--bg-terminal);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 14px;
+    background:#0a0c0f;
+    border-bottom:1px solid var(--line);
+  }
+  .tbtn{width:11px; height:11px; border-radius:50%;}
+  .tbtn.r{background:#ff5f56;} .tbtn.y{background:#ffbd2e;} .tbtn.g{background:#27c93f;}
+  .terminal-title{
+    margin-left:10px; font-family:var(--mono); font-size:12px; color:var(--text-faint);
+  }
+  .terminal-body{
+    padding:22px 20px 24px;
+    font-family:var(--mono);
+    font-size:13.5px;
+    color:var(--text-dim);
+    overflow-x:auto;
+  }
+  .terminal-body .prompt{color:var(--pass);}
+  .terminal-body .cmd{color:var(--text);}
+  .cursor{
+    display:inline-block; width:7px; height:14px; background:var(--pass);
+    vertical-align:middle; margin-left:2px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  .test-line{
+    display:flex; align-items:center; gap:10px; margin-top:10px;
+    opacity:0; transform:translateY(4px);
+    animation:reveal 0.4s ease forwards;
+  }
+  .test-line .status{color:var(--pass); font-weight:700; flex-shrink:0;}
+  .test-line .name{color:var(--text-dim);}
+  .test-line .time{color:var(--text-faint); margin-left:auto; flex-shrink:0;}
+  @keyframes reveal{to{opacity:1; transform:translateY(0);}}
+  .summary-line{
+    margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);
+    color:var(--pass); font-weight:600;
+    opacity:0; animation:reveal 0.4s ease forwards;
+  }
+
+  h1.hero-title{
+    font-family:var(--sans); font-weight:800;
+    font-size:clamp(32px, 5.4vw, 50px);
+    letter-spacing:-0.02em;
+    margin:30px 0 12px;
+    color:#fff;
+  }
+  h1.hero-title span{color:var(--pass);}
+  .hero-sub{
+    font-size:17px; color:var(--text-dim); max-width:640px; margin-bottom:26px;
+  }
+  .hero-sub strong{color:var(--text); font-weight:600;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
+  .btn{
+    font-family:var(--mono); font-size:13.5px; padding:11px 18px;
+    border-radius:6px; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--pass); color:#06210f; font-weight:700;}
+  .btn-primary:hover{background:#5be396; text-decoration:none;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--text-faint); text-decoration:none;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:56px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:28px;
+    border-bottom:1px solid var(--line); padding-bottom:14px;
+  }
+  .file-tag{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-faint);
+  }
+  .section-head h2{
+    font-family:var(--sans); font-weight:700; font-size:22px; color:#fff;
+  }
+  .describe{
+    font-family:var(--mono); font-size:12px; color:var(--pass); margin-left:auto;
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary-text{font-size:16.5px; color:var(--text-dim); max-width:760px;}
+  .summary-text strong{color:var(--text);}
+  .client-strip{
+    margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .client-chip{
+    font-family:var(--mono); font-size:12.5px; color:var(--text-dim);
+    border:1px solid var(--line); padding:6px 12px; border-radius:20px;
+    background:var(--bg-raised);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{
+    border:1px solid var(--line); border-radius:8px; background:var(--bg-raised);
+    padding:22px 22px 20px; margin-bottom:18px;
+  }
+  .job-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;}
+  .job-title{font-size:17px; font-weight:700; color:#fff;}
+  .job-role{font-family:var(--mono); font-size:13px; color:var(--pass); margin-top:3px;}
+  .job-time{font-family:var(--mono); font-size:12.5px; color:var(--text-faint); white-space:nowrap; margin-top:3px;}
+  .job ul{list-style:none; margin-top:14px;}
+  .job li{
+    position:relative; padding-left:22px; margin-bottom:10px;
+    color:var(--text-dim); font-size:14.5px;
+  }
+  .job li::before{
+    content:"✓"; position:absolute; left:0; top:0.5px; color:var(--pass); font-weight:700; font-size:13px;
+  }
+  .metric{color:var(--accent); font-weight:700;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:14px;
+  }
+  .skill-card{
+    border:1px solid var(--line); border-radius:8px; background:var(--bg-raised);
+    padding:16px 18px;
+  }
+  .skill-card h3{
+    font-family:var(--mono); font-size:12px; color:var(--text-faint);
+    text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;
+  }
+  .skill-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .skill-tags span{
+    font-family:var(--mono); font-size:12px; color:var(--text);
+    background:#181e25; border:1px solid var(--line); padding:4px 9px; border-radius:4px;
+  }
+
+  /* ---------- ASSERTIONS / WHY ME ---------- */
+  .assert-list{display:flex; flex-direction:column; gap:0;}
+  .assert-row{
+    display:grid; grid-template-columns:110px 1fr; gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:13.5px;
+  }
+  .assert-row:last-child{border-bottom:none;}
+  .assert-key{color:var(--text-faint);}
+  .assert-val{color:var(--text-dim);}
+  .assert-val strong{color:var(--text);}
+
+  /* ---------- EDUCATION / CERTS ---------- */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .card-simple{
+    border:1px solid var(--line); border-radius:8px; background:var(--bg-raised); padding:18px 20px;
+  }
+  .card-simple h4{font-size:14.5px; color:#fff; margin-bottom:6px;}
+  .card-simple p{font-size:13.5px; color:var(--text-dim);}
+  .card-simple .tag{font-family:var(--mono); font-size:11.5px; color:var(--pass); margin-top:8px; display:block;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-terminal{
+    background:var(--bg-terminal); border:1px solid var(--line); border-radius:8px;
+    padding:26px 24px; font-family:var(--mono); font-size:14px;
+  }
+  .contact-terminal .prompt{color:var(--pass);}
+  .contact-rows{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
+  .contact-rows a{color:var(--text); display:flex; gap:10px; font-size:14px;}
+  .contact-rows a:hover{color:var(--pass);}
+  .contact-rows .k{color:var(--text-faint); width:90px; flex-shrink:0;}
+
+  footer{
+    text-align:center; padding:32px 0 50px; font-family:var(--mono);
+    font-size:12px; color:var(--text-faint);
+  }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span>ayush.ingle</div>
+    <nav class="links">
+      <a href="#experience">experience</a>
+      <a href="#skills">skills</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Get in touch →</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">// automated-quality-engineering</div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="tbtn r"></span><span class="tbtn y"></span><span class="tbtn g"></span>
+        <span class="terminal-title">ayush-ingle — playwright test runner</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="cmd">npx playwright test ayush-ingle.spec.ts --project=hiring-manager</span><span class="cursor"></span></div>
+        <div class="test-line" style="animation-delay:.3s"><span class="status">✓ PASS</span><span class="name">framework-ownership.spec.ts — built Playwright+TS framework from scratch</span><span class="time">412ms</span></div>
+        <div class="test-line" style="animation-delay:.6s"><span class="status">✓ PASS</span><span class="name">performance.spec.ts — cut regression suite runtime by 40%</span><span class="time">88ms</span></div>
+        <div class="test-line" style="animation-delay:.9s"><span class="status">✓ PASS</span><span class="name">domain.spec.ts — shipped in a healthcare-regulated environment</span><span class="time">201ms</span></div>
+        <div class="test-line" style="animation-delay:1.2s"><span class="status">✓ PASS</span><span class="name">availability.spec.ts — ready to join immediately</span><span class="time">14ms</span></div>
+        <div class="summary-line" style="animation-delay:1.5s">4 passed (4) — 0 failed, 0 skipped, 0 flaky</div>
+      </div>
+    </div>
+
+    <h1 class="hero-title">Ayush Ingle<br><span>builds test suites that don't break.</span></h1>
+    <p class="hero-sub">
+      SDET / QA Automation Engineer with <strong>3 years</strong> of experience architecting Playwright + TypeScript
+      frameworks from the ground up — currently the <strong>sole automation owner</strong> for a healthcare-regulated
+      Document Management System used by U.S. blood banks and biologics organizations. Based in Pune, India.
+      <strong>Available to join immediately.</strong>
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Run this candidate →</a>
+      <a class="btn btn-ghost" href="mailto:ayush.210201@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/ayush-ingle" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">01 /</span>
+      <h2>summary.spec.ts</h2>
+      <span class="describe">describe('who I am')</span>
+    </div>
+    <p class="summary-text">
+      I design, build, and scale test automation frameworks using <strong>Playwright and TypeScript</strong>. At PixelQue
+      Software, I'm the sole architect of the automation framework for <strong>Kintavo DMS</strong>, a healthcare-regulated
+      Document Management System relied on by major U.S. blood banks and biologics organizations. I reduced regression
+      suite execution time by <strong>40%</strong> through parallel execution and intelligent test design, and I'm comfortable
+      across UI automation, API testing, fixture-based framework architecture, and Agile delivery in quality-critical,
+      audited environments.
+    </p>
+    <div class="client-strip">
+      <span class="client-chip">OneBlood</span>
+      <span class="client-chip">Vitalant</span>
+      <span class="client-chip">Suncoast</span>
+      <span class="client-chip">Boulder Biologics</span>
+      <span class="client-chip">MD Anderson</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">02 /</span>
+      <h2>experience.spec.ts</h2>
+      <span class="describe">describe('work history')</span>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">PixelQue Software Pvt. Ltd.</div>
+          <div class="job-role">Software Engineer – QA · Kintavo DMS</div>
+        </div>
+        <div class="job-time">Mar 2025 — Present</div>
+      </div>
+      <ul>
+        <li>Designed and built the end-to-end test automation framework <strong>from scratch</strong> using Playwright, TypeScript, and the Page Object Model for a healthcare-regulated DMS serving OneBlood, Vitalant, Suncoast, Boulder Biologics, and MD Anderson.</li>
+        <li>Enhanced the framework with fixture-based test setup for shared authentication flows, minimizing redundant initialization code and improving suite scalability.</li>
+        <li>Reduced automation suite execution time by <span class="metric">40%</span> through parallel test execution, intelligent test grouping, and elimination of redundant dependencies.</li>
+        <li>Managed automation code using Git, participating in code reviews and maintaining feature branches within the team's development workflow.</li>
+        <li>Collaborated with developers and product managers to define acceptance criteria and adopt shift-left testing, catching defects early in the development lifecycle.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Venkateshwara Canvassers</div>
+          <div class="job-role">Software Tester</div>
+        </div>
+        <div class="job-time">Aug 2023 — Feb 2025</div>
+      </div>
+      <ul>
+        <li>Executed functional, regression, smoke, and end-to-end testing for accounting software applications, ensuring high-quality releases.</li>
+        <li>Performed API testing using Postman, validating REST endpoints, authentication flows, request/response payloads, and error handling.</li>
+        <li>Identified, documented, and tracked software defects, collaborating with developers to verify fixes and improve product quality.</li>
+        <li>Participated in Agile ceremonies including sprint planning, requirement analysis, test estimation, and release validation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">03 /</span>
+      <h2>skills.spec.ts</h2>
+      <span class="describe">describe('toolbelt')</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="skill-tags"><span>TypeScript</span><span>JavaScript</span><span>SQL</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Test Automation</h3>
+        <div class="skill-tags"><span>Playwright</span><span>Page Object Model</span><span>Fixtures</span><span>Framework Design</span><span>E2E Testing</span><span>UI Automation</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>API Testing</h3>
+        <div class="skill-tags"><span>Postman</span><span>REST APIs</span><span>Auth Testing</span><span>Request/Response Validation</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Version Control</h3>
+        <div class="skill-tags"><span>Git</span><span>GitHub</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Testing Concepts</h3>
+        <div class="skill-tags"><span>Test Planning</span><span>Regression</span><span>Defect Lifecycle</span><span>Root Cause Analysis</span><span>Agile</span><span>Shift-Left</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud & Domain</h3>
+        <div class="skill-tags"><span>Azure AD (SSO)</span><span>Healthcare Compliance</span><span>Financial Services</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / ASSERTIONS -->
+  <section id="why" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">04 /</span>
+      <h2>expect.spec.ts</h2>
+      <span class="describe">expect(candidate).toMatch(role)</span>
+    </div>
+    <div class="assert-list">
+      <div class="assert-row"><span class="assert-key">expect(ownership)</span><span class="assert-val"><strong>toBe(true)</strong> — architected an automation framework from zero, not just maintained one</span></div>
+      <div class="assert-row"><span class="assert-key">expect(impact)</span><span class="assert-val"><strong>toBeGreaterThan(0)</strong> — 40% faster regression suite via parallelization</span></div>
+      <div class="assert-row"><span class="assert-key">expect(domain)</span><span class="assert-val"><strong>toContain('regulated')</strong> — comfortable in audited, quality-critical healthcare systems</span></div>
+      <div class="assert-row"><span class="assert-key">expect(availability)</span><span class="assert-val"><strong>toBe('immediate')</strong> — currently serving notice period</span></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTS -->
+  <section id="education" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">05 /</span>
+      <h2>credentials.spec.ts</h2>
+      <span class="describe">describe('education & certs')</span>
+    </div>
+    <div class="two-col">
+      <div class="card-simple">
+        <h4>B.E. Computer Science & Engineering</h4>
+        <p>Rajiv Gandhi College of Engineering & Research, Nagpur, MH</p>
+        <span class="tag">2019 — 2023</span>
+      </div>
+      <div class="card-simple">
+        <h4>Playwright JS/TS Automation Testing from Scratch & Framework</h4>
+        <p>Framework design, fixtures, and scaling test suites with Playwright.</p>
+        <span class="tag">Certification</span>
+      </div>
+      <div class="card-simple">
+        <h4>API Testing Path</h4>
+        <p>Postman Academy — REST API validation and automation.</p>
+        <span class="tag">Certification</span>
+      </div>
+      <div class="card-simple">
+        <h4>Location</h4>
+        <p>Pune, Maharashtra, India</p>
+        <span class="tag">Open to remote / relocation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <div class="section-head">
+      <span class="file-tag">06 /</span>
+      <h2>contact.spec.ts</h2>
+      <span class="describe">it('should reach out')</span>
+    </div>
+    <div class="contact-terminal">
+      <div><span class="prompt">$</span> curl -X POST /hire/ayush-ingle</div>
+      <div class="contact-rows">
+        <a href="mailto:ayush.210201@gmail.com"><span class="k">email</span> ayush.210201@gmail.com</a>
+        <a href="tel:+918055062689"><span class="k">phone</span> +91 80550 62689</a>
+        <a href="https://linkedin.com/in/ayush-ingle" target="_blank" rel="noopener"><span class="k">linkedin</span> linkedin.com/in/ayush-ingle</a>
+        <a href="#contact"><span class="k">status</span> 200 OK — available to join immediately</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Ayush Ingle — built with Playwright energy, not Playwright itself.</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
