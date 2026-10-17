@@ -1,482 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayush Ingle — SDET / QA Automation Engineer</title>
-<meta name="description" content="Ayush Ingle — SDET specializing in Playwright + TypeScript automation frameworks for regulated healthcare & life sciences platforms.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Ingle – SDET & QA Automation Engineer</title>
+<meta name="description" content="Ayush Ingle is an SDET and QA Automation Engineer in Pune, building Playwright and TypeScript frameworks, API tests and CI-integrated quality pipelines. Open to opportunities.">
+<meta property="og:title" content="Ayush Ingle – SDET & QA Automation Engineer">
+<meta property="og:description" content="Playwright, TypeScript, API testing and AI feature testing. Open to SDET roles.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg: #08090d;
-    --bg-soft: #0d0f16;
-    --panel: rgba(255,255,255,0.03);
-    --panel-border: rgba(255,255,255,0.08);
-    --text: #e8eaf0;
-    --text-dim: #9198a9;
-    --text-faint: #5b6272;
-    --violet: #8b7cf6;
-    --cyan: #5fd4d0;
-    --grad: linear-gradient(120deg, #8b7cf6 0%, #5fd4d0 100%);
-    --mono: 'JetBrains Mono', monospace;
-    --head: 'Space Grotesk', sans-serif;
-    --sans: 'Inter', sans-serif;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--sans);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    position:relative;
-    overflow-x:hidden;
-  }
-  body::before{
-    content:"";
-    position:fixed; inset:0; z-index:-2;
-    background:
-      radial-gradient(600px 400px at 15% -5%, rgba(139,124,246,0.16), transparent 60%),
-      radial-gradient(500px 400px at 90% 10%, rgba(95,212,208,0.12), transparent 60%),
-      var(--bg);
-  }
-  body::after{
-    content:"";
-    position:fixed; inset:0; z-index:-1; opacity:0.35;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size:44px 44px;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
-  }
-  ::selection{background:rgba(139,124,246,0.35); color:#fff;}
-  a{color:var(--cyan); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  :focus-visible{outline:2px solid var(--violet); outline-offset:3px;}
+:root{
+  --paper:#F6F7F9; --card:#FFFFFF; --ink:#16203A; --muted:#566079; --line:#DDE1EA;
+  --pass:#12805C; --pass-bg:#E3F4EC; --accent:#2F3FD0; --accent-bg:#E8EBFC;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4vw,2.75rem);margin-bottom:2rem}
+h3{font-size:1.5rem}
+p{max-width:64ch}
 
-  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+/* nav */
+header{position:sticky;top:0;z-index:20;background:rgba(246,247,249,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:4rem}
+.logo{font-family:var(--serif);font-size:1.5rem;text-decoration:none}
+nav ul{display:flex;gap:1.75rem;list-style:none;padding:0;font-size:.95rem}
+nav ul a{text-decoration:none;color:var(--muted);transition:color .15s}
+nav ul a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:.7rem 1.3rem;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid var(--ink);transition:background .15s,color .15s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+@media(max-width:720px){nav ul li:not(:last-child){display:none}}
 
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(8,9,13,0.72);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--panel-border);
-  }
-  .nav-inner{
-    max-width:960px; margin:0 auto; padding:16px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .logo{
-    font-family:var(--head); font-weight:700; font-size:15px; color:var(--text);
-    display:flex; align-items:center; gap:9px; letter-spacing:-0.01em;
-  }
-  .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--grad); flex-shrink:0; box-shadow:0 0 12px rgba(139,124,246,0.7);}
-  nav.links{display:flex; gap:28px; font-size:13.5px;}
-  nav.links a{color:var(--text-dim); font-weight:500;}
-  nav.links a:hover{color:var(--text); text-decoration:none;}
-  .nav-cta{
-    font-size:13px; font-weight:600; color:var(--bg);
-    background:var(--grad); padding:8px 16px; border-radius:100px;
-  }
-  .nav-cta:hover{text-decoration:none; opacity:0.9;}
-  @media (max-width:640px){ nav.links{display:none;} }
+/* hero */
+.hero{padding:5rem 0 4.5rem}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}
+.status{display:inline-flex;align-items:center;gap:.6rem;background:var(--pass-bg);color:var(--pass);padding:.4rem .9rem;border-radius:999px;font-size:.9rem;font-weight:600;margin-bottom:1.5rem}
+.status i{width:.55rem;height:.55rem;border-radius:50%;background:var(--pass);box-shadow:0 0 0 0 rgba(18,128,92,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 .6rem rgba(18,128,92,0)}100%{box-shadow:0 0 0 0 rgba(18,128,92,0)}}
+.hero h1{font-size:clamp(3rem,7vw,5.25rem);margin-bottom:1.25rem}
+.hero h1 em{color:var(--accent)}
+.hero .lead{font-size:1.2rem;color:var(--muted);margin-bottom:2rem}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
 
-  .hero{padding:88px 0 64px;}
-  .badge{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:var(--mono); font-size:12px; color:var(--cyan);
-    background:rgba(95,212,208,0.08); border:1px solid rgba(95,212,208,0.25);
-    padding:6px 13px; border-radius:100px; margin-bottom:26px;
-  }
-  .badge .pulse{width:6px; height:6px; border-radius:50%; background:var(--cyan); box-shadow:0 0 6px var(--cyan); animation:pulse 2s infinite;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+/* test report (the one memorable element) */
+.report{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 50px -24px rgba(22,32,58,.35);overflow:hidden;font-family:var(--mono);font-size:.84rem}
+.report-head{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.1rem;border-bottom:1px solid var(--line);background:#FAFBFC}
+.report-head b{font-weight:500}
+.report-head span{color:var(--muted)}
+.report ul{list-style:none;padding:.5rem 0}
+.report li{display:flex;align-items:center;gap:.8rem;padding:.5rem 1.1rem;opacity:0}
+.report li .tick{width:1.2rem;height:1.2rem;border-radius:50%;background:var(--pass-bg);color:var(--pass);display:grid;place-items:center;font-size:.7rem;flex:none}
+.report li small{margin-left:auto;color:var(--muted);font-size:.78rem}
+.report-foot{padding:.85rem 1.1rem;border-top:1px solid var(--line);background:var(--pass-bg);color:var(--pass);font-weight:500;opacity:0}
+.run .report li{animation:in .35s forwards;animation-delay:calc(var(--i)*.28s + .4s)}
+.run .report-foot{animation:in .35s forwards;animation-delay:3.4s}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .report li,.report-foot{opacity:1!important;animation:none!important}
+  .status i{animation:none}html{scroll-behavior:auto}
+}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:3rem}}
 
-  h1.hero-title{
-    font-family:var(--head); font-weight:700;
-    font-size:clamp(36px, 6vw, 58px);
-    letter-spacing:-0.03em; line-height:1.08;
-    margin-bottom:22px;
-    color:#fff;
-  }
-  h1.hero-title .grad{
-    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .hero-sub{
-    font-size:18px; color:var(--text-dim); max-width:660px; margin-bottom:32px;
-  }
-  .hero-sub strong{color:var(--text); font-weight:600;}
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
-  .btn{
-    font-size:14.5px; font-weight:600; padding:13px 22px;
-    border-radius:10px; display:inline-flex; align-items:center; gap:8px;
-    transition:transform 0.15s ease, opacity 0.15s ease;
-  }
-  .btn:hover{transform:translateY(-1px); text-decoration:none;}
-  .btn-primary{background:var(--grad); color:#06070a;}
-  .btn-primary:hover{opacity:0.92;}
-  .btn-ghost{border:1px solid var(--panel-border); color:var(--text); background:var(--panel);}
-  .btn-ghost:hover{border-color:rgba(255,255,255,0.22);}
+/* sections */
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p+p{margin-top:1rem}
+.facts{display:grid;gap:1.1rem;align-content:start}
+.facts div{padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
+.facts dt{font-size:.9rem;color:var(--muted)}
+.facts dd{margin:0;font-weight:500}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
 
-  .stat-row{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--panel-border); border:1px solid var(--panel-border); border-radius:14px; overflow:hidden;
-  }
-  .stat{background:var(--bg-soft); padding:20px 16px; text-align:center;}
-  .stat .num{font-family:var(--head); font-weight:700; font-size:26px; color:#fff;}
-  .stat .num span{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .stat .label{font-size:11.5px; color:var(--text-faint); margin-top:4px; letter-spacing:0.02em;}
-  @media (max-width:640px){ .stat-row{grid-template-columns:repeat(2,1fr);} }
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
+.skill h3{margin-bottom:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;padding:0;list-style:none}
+.tags li{font-size:.88rem;padding:.25rem .7rem;border-radius:6px;background:var(--accent-bg);color:var(--accent);font-weight:500}
 
-  section{padding:64px 0;}
-  .eyebrow{
-    font-family:var(--mono); font-size:12px; color:var(--violet);
-    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px; display:block;
-  }
-  .section-head{margin-bottom:36px;}
-  .section-head h2{
-    font-family:var(--head); font-weight:700; font-size:28px; color:#fff; letter-spacing:-0.02em;
-  }
+/* experience timeline: real chronological sequence */
+.timeline{position:relative;padding-left:2rem;border-left:2px solid var(--line);display:grid;gap:3rem}
+.role{position:relative}
+.role::before{content:"";position:absolute;left:-2.55rem;top:.55rem;width:.85rem;height:.85rem;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+.role .meta{color:var(--muted);font-size:.95rem;margin:.35rem 0 1rem}
+.role ul{padding-left:1.1rem;display:grid;gap:.6rem;max-width:68ch}
+.role li::marker{color:var(--accent)}
 
-  .summary-card{
-    background:var(--panel); border:1px solid var(--panel-border); border-radius:16px;
-    padding:32px; position:relative; overflow:hidden;
-  }
-  .summary-card::before{
-    content:""; position:absolute; top:-40%; right:-15%; width:280px; height:280px; border-radius:50%;
-    background:radial-gradient(circle, rgba(139,124,246,0.15), transparent 70%);
-  }
-  .summary-text{font-size:16.5px; color:var(--text-dim); max-width:760px; position:relative;}
-  .summary-text strong{color:var(--text); font-weight:600;}
-  .workflow-strip{margin-top:22px; display:flex; flex-wrap:wrap; gap:9px; position:relative;}
-  .workflow-chip{
-    font-family:var(--mono); font-size:12px; color:var(--text-dim);
-    border:1px solid var(--panel-border); padding:6px 13px; border-radius:100px;
-    background:rgba(255,255,255,0.02);
-  }
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:3rem}
+.feature>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
+.feature h3{font-size:1.3rem;margin-bottom:.5rem}
+.feature p{color:var(--muted);font-size:1rem}
 
-  .job{
-    border:1px solid var(--panel-border); border-radius:16px; background:var(--panel);
-    padding:28px 28px 26px; margin-bottom:20px; position:relative;
-  }
-  .job-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
-  .job-title-group{display:flex; align-items:center; gap:12px;}
-  .job-mark{width:38px; height:38px; border-radius:10px; background:var(--grad); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:var(--head); font-weight:700; color:#0a0b10; font-size:15px;}
-  .job-title{font-family:var(--head); font-size:18px; font-weight:600; color:#fff;}
-  .job-role{font-size:13.5px; color:var(--violet); margin-top:2px; font-weight:500;}
-  .job-time{font-family:var(--mono); font-size:12px; color:var(--text-faint); white-space:nowrap; background:rgba(255,255,255,0.04); padding:5px 10px; border-radius:100px;}
-  .job-product{font-size:13.5px; color:var(--text-faint); margin:14px 0 14px; padding-left:50px;}
-  .job ul{list-style:none; padding-left:50px;}
-  .job li{
-    position:relative; padding-left:20px; margin-bottom:11px;
-    color:var(--text-dim); font-size:14.5px;
-  }
-  .job li::before{
-    content:""; position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%;
-    background:var(--grad);
-  }
-  .metric{color:var(--cyan); font-weight:700;}
-  @media (max-width:600px){ .job-product, .job ul{padding-left:0;} }
+.project{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:2.25rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem}
+.project ul{padding-left:1.1rem;display:grid;gap:.6rem;margin:1.1rem 0 1.5rem}
+.project li::marker{color:var(--pass)}
+.tree{background:var(--ink);color:#DCE2F5;font-family:var(--mono);font-size:.82rem;border-radius:10px;padding:1.25rem;line-height:1.8;align-self:start;overflow-x:auto;white-space:pre}
+.tree b{color:#7BE0B5;font-weight:500}
+@media(max-width:820px){.project{grid-template-columns:1fr;padding:1.5rem}}
 
-  .skills-grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:16px;
-  }
-  .skill-card{
-    border:1px solid var(--panel-border); border-radius:14px; background:var(--panel);
-    padding:20px 22px; transition:border-color 0.2s ease;
-  }
-  .skill-card:hover{border-color:rgba(139,124,246,0.35);}
-  .skill-card h3{
-    font-family:var(--head); font-size:14px; color:#fff; font-weight:600; margin-bottom:13px;
-    display:flex; align-items:center; gap:8px;
-  }
-  .skill-card h3::before{content:""; width:7px; height:7px; border-radius:2px; background:var(--grad); display:inline-block;}
-  .skill-tags{display:flex; flex-wrap:wrap; gap:7px;}
-  .skill-tags span{
-    font-family:var(--mono); font-size:12px; color:var(--text-dim);
-    background:rgba(255,255,255,0.04); border:1px solid var(--panel-border); padding:5px 10px; border-radius:6px;
-  }
+.edu{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
 
-  .why-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
-  @media (max-width:640px){ .why-grid{grid-template-columns:1fr;} }
-  .why-card{
-    border:1px solid var(--panel-border); border-radius:14px; background:var(--panel);
-    padding:22px;
-  }
-  .why-card .why-num{font-family:var(--head); font-size:13px; color:var(--violet); font-weight:700; margin-bottom:10px;}
-  .why-card h4{font-family:var(--head); font-size:16px; color:#fff; font-weight:600; margin-bottom:8px;}
-  .why-card p{font-size:14px; color:var(--text-dim);}
-
-  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-  @media (max-width:640px){.two-col{grid-template-columns:1fr;}}
-  .card-simple{
-    border:1px solid var(--panel-border); border-radius:14px; background:var(--panel); padding:22px;
-  }
-  .card-simple h4{font-family:var(--head); font-size:15.5px; color:#fff; margin-bottom:7px; font-weight:600;}
-  .card-simple p{font-size:13.5px; color:var(--text-dim);}
-  .card-simple .tag{font-family:var(--mono); font-size:11.5px; color:var(--cyan); margin-top:10px; display:block;}
-
-  .contact-card{
-    background:var(--panel); border:1px solid var(--panel-border); border-radius:20px;
-    padding:44px 36px; text-align:center; position:relative; overflow:hidden;
-  }
-  .contact-card::before{
-    content:""; position:absolute; inset:0;
-    background:radial-gradient(500px 260px at 50% 0%, rgba(139,124,246,0.14), transparent 70%);
-  }
-  .contact-card h2{font-family:var(--head); font-size:30px; color:#fff; font-weight:700; letter-spacing:-0.02em; position:relative; margin-bottom:12px;}
-  .contact-card p{color:var(--text-dim); font-size:15.5px; max-width:480px; margin:0 auto 28px; position:relative;}
-  .contact-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; margin-bottom:30px;}
-  .contact-rows{display:flex; gap:22px; justify-content:center; flex-wrap:wrap; position:relative; font-size:13.5px; font-family:var(--mono);}
-  .contact-rows a{color:var(--text-dim);}
-  .contact-rows a:hover{color:var(--cyan);}
-
-  footer{
-    text-align:center; padding:36px 0 54px; font-family:var(--mono);
-    font-size:12px; color:var(--text-faint);
-  }
-
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
+.contact{text-align:center}
+.contact h2{font-size:clamp(2.4rem,6vw,4rem)}
+.contact p{margin:0 auto 2rem;color:var(--muted)}
+.contact .cta{justify-content:center}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <div class="logo"><span class="dot"></span>Ayush Ingle</div>
-    <nav class="links">
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+<header>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a class="logo" href="#top">Ayush Ingle</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a class="btn primary" href="#contact">Hire me</a></li>
+      </ul>
     </nav>
-    <a class="nav-cta" href="#contact">Get in touch →</a>
   </div>
 </header>
 
-<main class="wrap">
-
-  <section class="hero">
-    <div class="badge"><span class="pulse"></span>Available to join immediately</div>
-
-    <h1 class="hero-title">Building test automation<br>that <span class="grad">scales with the product.</span></h1>
-
-    <p class="hero-sub">
-      I'm <strong>Ayush Ingle</strong>, a QA Automation Engineer / SDET with <strong>3.1 years</strong> of experience across
-      healthcare and accounting software. Currently the sole automation owner for <strong>Kintavo</strong>, a cloud-based
-      eQMS for regulated healthcare & life sciences organizations — where I built a <strong>1,500+ test</strong> Playwright
-      framework from scratch and cut regression time by <strong>40%</strong>. Based in Pune, India.
-    </p>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#contact">Let's talk →</a>
-      <a class="btn btn-ghost" href="mailto:ayush.210201@gmail.com">Email me</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/ayush-ingle" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat"><div class="num"><span>3.1</span></div><div class="label">YEARS EXPERIENCE</div></div>
-      <div class="stat"><div class="num"><span>1500+</span></div><div class="label">TESTS BUILT (KINTAVO)</div></div>
-      <div class="stat"><div class="num"><span>40%</span></div><div class="label">FASTER REGRESSION</div></div>
-      <div class="stat"><div class="num"><span>450+</span></div><div class="label">TESTS (PRIOR ROLE)</div></div>
-    </div>
-  </section>
-
-  <section id="summary" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">Overview</span>
-      <h2>What I do</h2>
-    </div>
-    <div class="summary-card">
-      <p class="summary-text">
-        I design and build <strong>scalable automation frameworks from the ground up</strong> and automate complex
-        end-to-end business workflows using <strong>Playwright, TypeScript, and JavaScript</strong>. At PixelQue Software,
-        I work across Document Control, Training, CAPA, and Audit modules of <strong>Kintavo</strong> — a cloud-based
-        eQMS — with primary automation ownership of Document Control. My toolkit spans the Page Object Model, fixtures,
-        shared authentication, reusable components, parallel execution, <strong>Jenkins CI/CD</strong>, Postman API testing,
-        and Agile/Scrum delivery, including hands-on experience validating <strong>AI-powered features</strong> like an
-        AI Assistant and AI Quiz Generator.
-      </p>
-      <div class="workflow-strip">
-        <span class="workflow-chip">Document Control</span>
-        <span class="workflow-chip">Training</span>
-        <span class="workflow-chip">CAPA</span>
-        <span class="workflow-chip">Audit</span>
-        <span class="workflow-chip">AI Assistant Testing</span>
+<main id="top">
+<div class="hero run">
+  <div class="wrap">
+    <div>
+      <p class="status"><i></i>Open to SDET roles</p>
+      <h1>I build test frameworks that <em>teams trust</em>.</h1>
+      <p class="lead">SDET and QA Automation Engineer in Pune. I design Playwright and TypeScript frameworks, validate REST APIs, and test AI-powered features for a multi-module SaaS Quality Management System.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:ayush.210201@gmail.com">Email me</a>
+        <a class="btn ghost" href="Ayush_Ingle_Resume.pdf" download>Download resume</a>
       </div>
     </div>
-  </section>
 
-  <section id="experience" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">Career</span>
-      <h2>Experience</h2>
-    </div>
-
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title-group">
-          <div class="job-mark">Px</div>
-          <div>
-            <div class="job-title">PixelQue Software</div>
-            <div class="job-role">Software Engineer – QA</div>
-          </div>
-        </div>
-        <div class="job-time">Mar 2025 — Present</div>
-      </div>
-      <div class="job-product">Product: Kintavo — Cloud-Based eQMS for Healthcare & Life Sciences. Worked across Document Control, Training, CAPA, and Audit workflows, with primary automation ownership for Document Control.</div>
+    <div class="report" role="img" aria-label="Test report showing Kintavo modules, API and AI feature suites all passing">
+      <div class="report-head"><b>kintavo.regression</b><span>playwright test</span></div>
       <ul>
-        <li>Designed and built the <strong>Playwright + TypeScript automation framework from scratch</strong>, establishing the architecture, coding standards, reusable components, and test organization.</li>
-        <li>Built and maintained a <span class="metric">1,500+ test</span> automation suite covering critical end-to-end business workflows across the application.</li>
-        <li>Automated Document Control workflows including document creation/upload, editing, versioning, review, approval, electronic signatures, effective dates, periodic reviews, retirement, search/filtering, audit trails, and role-based permissions.</li>
-        <li>Developed automation primarily around Admin workflows, validating complex business rules, permissions, document lifecycle transitions, and end-to-end scenarios.</li>
-        <li>Implemented Page Object Model, custom fixtures, assertions, and shared authentication using Playwright storage state to improve scalability, maintainability, and execution efficiency.</li>
-        <li>Implemented parallel execution and test optimization, reducing overall regression execution time by <span class="metric">40%</span>.</li>
-        <li>Performed REST API testing using Postman, validating API functionality, authentication, request/response payloads, status codes, error handling, and business responses.</li>
-        <li>Integrated the automation suite with <strong>Jenkins CI/CD</strong> for automated regression execution and continuous quality validation.</li>
-        <li>Performed functional, regression, integration, exploratory, and end-to-end testing across application workflows, integrations, permissions, and business requirements.</li>
-        <li>Tested <strong>AI-powered features</strong> including an AI Assistant and AI Quiz Generator, validating whether responses were grounded in system data and uploaded documents, assessing response validity, and testing different quiz difficulty levels.</li>
-        <li>Collaborated with developers and QA team members on defect analysis, root-cause investigation, regression validation, and release quality.</li>
-        <li>Used Git, GitHub, and <strong>GitHub Copilot</strong> for version control, automation development, code improvement, and collaborative development.</li>
+        <li style="--i:0"><span class="tick">✓</span>Builder<small>e2e</small></li>
+        <li style="--i:1"><span class="tick">✓</span>Tasks<small>e2e</small></li>
+        <li style="--i:2"><span class="tick">✓</span>Training<small>e2e</small></li>
+        <li style="--i:3"><span class="tick">✓</span>QC Analysis<small>e2e</small></li>
+        <li style="--i:4"><span class="tick">✓</span>Documents<small>e2e</small></li>
+        <li style="--i:5"><span class="tick">✓</span>Records<small>e2e</small></li>
+        <li style="--i:6"><span class="tick">✓</span>REST API contracts<small>api</small></li>
+        <li style="--i:7"><span class="tick">✓</span>AI Assistant and Quiz Generator<small>ai</small></li>
       </ul>
+      <div class="report-foot">All suites passed. Ready to ship.</div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>Quality engineering, built into delivery</h2>
+      <p>I have 1.7 years of hands-on experience in test automation, API testing and quality engineering on a multi-module SaaS product. I write Playwright automation with the Page Object Model, validate REST APIs, and run regression every release.</p>
+      <p>I also test AI-powered features, checking response relevance, content accuracy and edge cases. I'm now looking for an SDET role where I can build scalable, CI-integrated test frameworks.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>SDET / QA Automation Engineer</dd></div>
+      <div><dt>Currently</dt><dd>Software Engineer – QA, Pixelque Software</dd></div>
+      <div><dt>Core stack</dt><dd>Playwright, TypeScript, JavaScript, Postman</dd></div>
+      <div><dt>Location</dt><dd>Pune, Maharashtra, India</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><h3>Test automation</h3>
+        <ul class="tags"><li>Playwright</li><li>Page Object Model</li><li>Fixtures</li><li>Locators</li><li>Assertions</li><li>Framework design</li><li>End-to-end</li><li>Regression</li></ul></div>
+      <div class="skill"><h3>Programming</h3>
+        <ul class="tags"><li>TypeScript</li><li>JavaScript (ES6+)</li><li>SQL</li></ul></div>
+      <div class="skill"><h3>API testing</h3>
+        <ul class="tags"><li>Postman</li><li>Playwright API testing</li><li>REST</li><li>JSON</li><li>Authentication</li><li>HTTP status codes</li><li>Request/response validation</li></ul></div>
+      <div class="skill"><h3>Testing types</h3>
+        <ul class="tags"><li>Functional</li><li>Regression</li><li>Smoke</li><li>Sanity</li><li>Integration</li><li>Exploratory</li><li>UI</li><li>AI feature testing</li></ul></div>
+      <div class="skill"><h3>CI/CD and tools</h3>
+        <ul class="tags"><li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>npm</li><li>JIRA</li><li>Allure / HTML reports</li><li>GitHub Copilot</li></ul></div>
+      <div class="skill"><h3>Process</h3>
+        <ul class="tags"><li>Agile</li><li>Scrum</li><li>SDLC</li><li>STLC</li><li>Test case design</li><li>Defect lifecycle</li><li>Requirement analysis</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <article class="role">
+        <h3>Software Engineer – QA</h3>
+        <p class="meta">Pixelque Software Pvt. Ltd. · July 2025 – Present · Kintavo, Quality Management System (SaaS)</p>
+        <ul>
+          <li>Design, develop and maintain Playwright (JavaScript) automation using the Page Object Model and reusable methods, which improves maintainability and reduces duplicate code.</li>
+          <li>Automate end-to-end and regression workflows across the Builder, Tasks, Training, QC Analysis, Documents and Records modules.</li>
+          <li>Validate UI behavior, business rules and expected outcomes with Playwright locators, assertions and browser interactions.</li>
+          <li>Test REST APIs in Postman, covering request/response payloads, authentication, HTTP status codes and error handling.</li>
+          <li>Run regression and defect retesting every release, and log defects in JIRA with clear reproduction steps and expected vs actual results.</li>
+          <li>Work with developers and cross-functional teams on requirement analysis, defect investigation and quality improvements in Agile sprints.</li>
+        </ul>
+      </article>
+      <article class="role">
+        <h3>QA Intern</h3>
+        <p class="meta">Pixelque Software Pvt. Ltd. · March 2025 – June 2025</p>
+        <ul>
+          <li>Executed functional, UI, regression and end-to-end test cases for business-critical workflows in Kintavo.</li>
+          <li>Wrote the first Playwright and JavaScript automation scripts, organized with the Page Object Model and reusable methods.</li>
+          <li>Reported defects with detailed reproduction steps and supported retesting alongside senior QA engineers.</li>
+          <li>Took part in Agile ceremonies and learned test design, execution and the defect lifecycle hands-on.</li>
+        </ul>
+      </article>
     </div>
 
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title-group">
-          <div class="job-mark">Vc</div>
-          <div>
-            <div class="job-title">Venkateshwara Canvassers</div>
-            <div class="job-role">Software Tester</div>
-          </div>
-        </div>
-        <div class="job-time">Aug 2023 — Feb 2025</div>
-      </div>
-      <div class="job-product">Product: Accounting & Inventory Management Software — supporting billing, commission transactions, inventory management, and record entries.</div>
-      <ul>
-        <li>Executed functional, regression, smoke, integration, exploratory, and end-to-end testing across accounting and inventory management workflows.</li>
-        <li>Analysed business requirements and acceptance criteria to design and execute test scenarios and test cases for critical business processes.</li>
-        <li>Developed and maintained <span class="metric">450+</span> Playwright and JavaScript automation tests covering key regression and high-priority business scenarios.</li>
-        <li>Automated core workflows including billing, commission transactions, inventory management, record entries, and other accounting operations.</li>
-        <li>Implemented Page Object Model and reusable automation components to improve test maintainability and reduce duplication.</li>
-        <li>Performed exploratory testing to identify functional gaps, edge cases, data issues, and unexpected application behaviour.</li>
-        <li>Managed the complete defect lifecycle, including defect identification, reporting, retesting, verification, and collaboration with developers.</li>
-        <li>Maintained test documentation, execution reports, and defect records throughout the software development lifecycle.</li>
-      </ul>
+    <div class="feature">
+      <div><h3>AI feature testing</h3><p>I test the AI Assistant Chatbot and AI Quiz Generator for response relevance, content accuracy, functional behavior and edge cases.</p></div>
+      <div><h3>API-first validation</h3><p>I verify authentication, status codes, payloads and error handling in Postman and Playwright API tests, so UI failures are traced to the right layer.</p></div>
+      <div><h3>Release confidence</h3><p>Regression automation across six product modules replaces repetitive manual checks and keeps every release verified.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="skills" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">Toolbelt</span>
-      <h2>Skills</h2>
+<section id="project">
+  <div class="wrap">
+    <h2>Featured project</h2>
+    <div class="project">
+      <div>
+        <h3>Playwright + TypeScript automation framework</h3>
+        <ul>
+          <li>Scalable UI and API automation framework with the Page Object Model, custom fixtures and reusable utilities.</li>
+          <li>Data-driven tests with externalized test data and environment-based configuration across end-to-end user flows.</li>
+          <li>HTML reports with screenshots and traces, plus parallel execution for faster feedback and simpler failure debugging.</li>
+        </ul>
+        <!-- TODO: replace with your real repository URL -->
+        <a class="btn primary" href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+      <div class="tree" aria-hidden="true"><b>framework/</b>
+├─ pages/        page objects
+├─ fixtures/     custom fixtures
+├─ tests/
+│  ├─ ui/
+│  └─ api/
+├─ utils/        reusable helpers
+├─ data/         external test data
+└─ playwright.config.ts</div>
     </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Automation & Programming</h3>
-        <div class="skill-tags"><span>Playwright</span><span>TypeScript</span><span>JavaScript</span><span>UI Automation</span><span>E2E Automation</span><span>Page Object Model</span><span>Fixtures</span><span>Reusable Components</span><span>Parallel Execution</span><span>Framework Design</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>API & Testing</h3>
-        <div class="skill-tags"><span>Postman</span><span>REST API Testing</span><span>API Validation</span><span>Auth Testing</span><span>Functional Testing</span><span>Regression</span><span>Integration Testing</span><span>Smoke Testing</span><span>Exploratory Testing</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>CI/CD & Tools</h3>
-        <div class="skill-tags"><span>Jenkins</span><span>Git</span><span>GitHub</span><span>npm</span><span>GitHub Copilot</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>AI Testing</h3>
-        <div class="skill-tags"><span>AI Assistant Testing</span><span>AI Quiz Generator Testing</span><span>AI Response Validation</span><span>Document-Grounded Testing</span><span>Edge-Case Testing</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>Process & Methodology</h3>
-        <div class="skill-tags"><span>Test Scenario Design</span><span>Test Case Design</span><span>Defect Lifecycle</span><span>Root Cause Analysis</span><span>Agile</span><span>Scrum</span><span>Shift-Left Testing</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>Domain</h3>
-        <div class="skill-tags"><span>Healthcare & Life Sciences</span><span>eQMS</span><span>Regulated Systems</span><span>Accounting Software</span></div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section id="why" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">Why me</span>
-      <h2>What sets me apart</h2>
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <div><h3>Bachelor of Engineering, Computer Science and Engineering</h3>
+        <p>Rajiv Gandhi College of Engineering & Research, Nagpur</p></div>
+      <p>2019 – 2023</p>
     </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-num">01</div>
-        <h4>I build frameworks, not just tests</h4>
-        <p>Owned Playwright + TypeScript framework architecture from zero — coding standards, reusable components, and test organization — twice, across two companies.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">02</div>
-        <h4>Proven at scale</h4>
-        <p>Built and maintain a 1,500+ test suite in production, plus 450+ tests in a prior role — not toy projects, real regression coverage on live products.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">03</div>
-        <h4>Regulated-domain comfort</h4>
-        <p>Currently testing document control, e-signatures, audit trails, and role-based permissions inside a healthcare & life sciences eQMS — compliance-aware by default.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-num">04</div>
-        <h4>Ahead of the curve on AI testing</h4>
-        <p>Hands-on experience validating AI Assistant and AI Quiz Generator features — grounding checks, response validity, and edge-case testing for LLM-powered functionality.</p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section id="education" class="reveal">
-    <div class="section-head">
-      <span class="eyebrow">Background</span>
-      <h2>Education</h2>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's build quality in</h2>
+    <p>I'm actively looking for SDET and QA Automation Engineer roles. If your team needs scalable, CI-integrated test frameworks, I'd like to talk.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:ayush.210201@gmail.com">ayush.210201@gmail.com</a>
+      <!-- TODO: replace with your real LinkedIn URL -->
+      <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="Ayush_Ingle_Resume.pdf" download>Resume (PDF)</a>
     </div>
-    <div class="two-col">
-      <div class="card-simple">
-        <h4>B.E. Computer Science & Engineering</h4>
-        <p>Rajiv Gandhi College of Engineering & Research</p>
-        <span class="tag">2019 — 2023</span>
-      </div>
-      <div class="card-simple">
-        <h4>Location & availability</h4>
-        <p>Pune, Maharashtra, India</p>
-        <span class="tag">Open to remote / relocation · Available immediately</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="reveal">
-    <div class="contact-card">
-      <h2>Let's build reliable software together.</h2>
-      <p>Open to SDET / QA Automation opportunities — happy to walk through my framework architecture or automation approach anytime.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:ayush.210201@gmail.com">Email me →</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/ayush-ingle" target="_blank" rel="noopener">Connect on LinkedIn</a>
-      </div>
-      <div class="contact-rows">
-        <a href="mailto:ayush.210201@gmail.com">ayush.210201@gmail.com</a>
-        <a href="tel:+918055062689">+91 80550 62689</a>
-        <a href="https://linkedin.com/in/ayush-ingle" target="_blank" rel="noopener">linkedin.com/in/ayush-ingle</a>
-      </div>
-    </div>
-  </section>
-
+  </div>
+</section>
 </main>
 
-<footer>© 2026 Ayush Ingle — designed & built for the role I want next.</footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
-  }, {threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
+<footer><div class="wrap">© <span id="y"></span> Ayush Ingle · Pune, India</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
